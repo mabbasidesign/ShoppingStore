@@ -10,6 +10,7 @@ namespace ShoppingStore.Data
     public class OrderDbContext: DbContext
     {
         public OrderDbContext(DbContextOptions<OrderDbContext> options)
+            : base(options)
         {
 
         }
@@ -18,7 +19,7 @@ namespace ShoppingStore.Data
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<OrderProduct> OrderProducts { get; set; }
+        //public virtual DbSet<OrderProduct> OrderProducts { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Saller> Sallers { get; set; }

@@ -25,6 +25,6 @@ namespace ShoppingStore.Models
 
         public ICollection<Saller> Sallers { get; set; }
         public ICollection<Employee> Employees { get; set; }
-        public ICollection<OrderProduct> OrderItems { get; set; }
+        //public ICollection<OrderProduct> OrderItems { get; set; }
     }
 }
