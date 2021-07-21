@@ -15,6 +15,12 @@ namespace ShoppingStore.Models
         public string Name { get; set; }
 
         [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public int Phone { get; set; }
+
+        [Required]
         [Range(15, 80)]
         public int Age { get; set; }
 

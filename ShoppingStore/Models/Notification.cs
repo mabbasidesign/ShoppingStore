@@ -19,6 +19,10 @@ namespace ShoppingStore.Models
         public string Description { get; set; }
 
         [Required]
+        [StringLength(50, MinimumLength = 3)]
+        public int SendToId { get; set; }
+
+        [Required]
         public DateTime DateTime { get; set; }
         public int Duration { get; set; }
 

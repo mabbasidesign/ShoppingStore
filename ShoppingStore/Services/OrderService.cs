@@ -44,7 +44,7 @@ namespace ShoppingStore.Services
             }
         }
 
-        // Confirm order by sales manager
+        // Confirm order by sales manager and send note to employee
         public bool UpdateAndConfirmOrderBySalesManager(Order order)
         {
             try
@@ -54,14 +54,24 @@ namespace ShoppingStore.Services
                     _db.Update(order);
                     _db.SaveChanges();
                 }
+
+                return _db.Orders.Any(o => o.IsConfirmBySalesManger == true) ? true : false;
             }
             catch (InvalidCastException e)
             {
                 throw new InvalidCastException("Only Sales Manager can Edit this order", e);
             }
+        }
 
-            return _db.Orders.Any(o => o.IsConfirmBySalesManger == true) ? true : false;
+        public void SplitOderByEmployee()
+        {
+            // get collection of employess
+            // find the matching product Id with employee
 
+            //Instantiate an Order object and set the ReferenceCustomerID property to the
+            //customer identifier in order to record the customer
+
+            // Create order
         }
 
         // Display All Orders if they are confirm by sales manager

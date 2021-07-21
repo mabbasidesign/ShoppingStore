@@ -8,8 +8,8 @@ namespace ShoppingStore.Services
 {
     public interface INotificationService
     {
-        void EmployeeNotifications(Notification notification); // Send confirm order sms to corespondent employee if position == employee using thread
-        IEnumerable<Order> NotificationDateAndStatus(); // display all notifications
-        void CEONotifications(Notification notification); // Send sms to ceo manages every night at 8pm
+        bool EmployeeNotifications(Notification notification, int EmployeeId); // Send confirm order sms to corespondent employee if position == employee using thread
+        IEnumerable<Notification> NotificationDateAndStatus(); // display all notifications
+        bool CEONotifications(Notification notification, int EmployeeId); // Send sms to ceo manages every night at 8pm
     }
 }
