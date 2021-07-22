@@ -40,7 +40,7 @@ namespace ShoppingStore.Services
             }
             catch (InvalidCastException e)
             {
-                throw new InvalidCastException("Only Employees can Edit this order", e);
+                throw new InvalidCastException("Only employees can edit this order", e);
             }
         }
 
@@ -63,15 +63,20 @@ namespace ShoppingStore.Services
             }
         }
 
-        public void SplitOderByEmployee()
+        // Create Order for each customer 
+        public void SplitOderByEmployee(Order order, int productID)
         {
-            // get collection of employess
-            // find the matching product Id with employee
+            var employeeProduct = _db.Employees.Any(e => e.ProductId == productID);
+            var totalOrder = (from o in _db.Orders select o.Employee.Name).Count().ToString().ToList();
 
-            //Instantiate an Order object and set the ReferenceCustomerID property to the
-            //customer identifier in order to record the customer
-
-            // Create order
+            foreach (var o in totalOrder)
+            {
+                if(employeeProduct)
+                {
+                    _db.Orders.Add(order);
+                    _db.SaveChanges();
+                }
+            }
         }
 
         // Display All Orders if they are confirm by sales manager
